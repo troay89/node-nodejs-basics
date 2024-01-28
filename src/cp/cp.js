@@ -1,6 +1,8 @@
+import { spawn } from 'node:child_process';
+import {join} from 'node:path';
+
 const spawnChildProcess = async (args) => {
-    // Write your code here
+    spawn('node', [join('.', 'src', 'cp', 'files', 'script.js'), ...args], { stdio: [process.stdin, process.stdout, 'pipe', 'ipc'] });
 };
 
-// Put your arguments in function call to test this functionality
-spawnChildProcess( /* [someArgument1, someArgument2, ...] */);
+spawnChildProcess(['args1', 'args2']);
